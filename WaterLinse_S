@@ -1,7 +1,5 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "AQUAS/Camera Effects/Wet Lens" {
+Shader "WQ/Camera Effects/Wet Lens" {
     Properties {
         [HideInInspector]_Normal ("Normal", 2D) = "bump" {}
         [HideInInspector]_CutoutReferenceTexture ("Cutout Reference Texture", 2D) = "bump" {}
