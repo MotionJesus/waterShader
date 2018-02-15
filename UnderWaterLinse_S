@@ -1,5 +1,3 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 Shader "AQUAS/Camera Effects/Under Water" {
     Properties {
         _DistortionTexture ("Distortion Texture", 2D) = "bump" {}
@@ -72,8 +70,6 @@ Shader "AQUAS/Camera Effects/Under Water" {
                 float2 _componentMask = abs(i.screenPos.rg).rg;
                 float2 sceneUVs = float2(1,grabSign)*i.screenPos.xy*0.5+0.5 + (float2(_DistortionTexture_var.r,_DistortionTexture_var.g)*(1.0 - pow(max(_componentMask.r,_componentMask.g),3.0))*(_DistortionIntensity*0.2));
                 float4 sceneColor = tex2D(_GrabTexture, sceneUVs);
-/////// Vectors:
-////// Lighting:
                 float3 finalColor = 0;
                 fixed4 finalRGBA = fixed4(lerp(sceneColor.rgb, finalColor,0.0),1);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
